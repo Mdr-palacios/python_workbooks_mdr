@@ -5,28 +5,13 @@
 ## work as they might wish. 
 
 
-## we're making sure we have the various drivers for bigquery
+## here we've imported the first few packages for you. 
 import os
 import pandas as pd
 
-## doing a system call to verify the packages 
-os.system("curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-sudo apt-get update && sudo apt-get install google-cloud-cli")
-## similar to above, pulling in python
-os.system("pip install BigQuery-connector-python")
 
-from google.cloud import bigquery
+## exercise 0: read in the data from the csv, hint:  pd.read_csv is your friend
+## again, pandas documentation, which you can refer to frequently, is here
+## https://pandas.pydata.org/docs/user_guide/index.html
 
-client = bigquery.Client()
-
-# Perform a query.
-QUERY = (
-    'SELECT name FROM `bigquery-public-data.usa_names.usa_1910_2013` '
-    'WHERE state = "TX" '
-    'LIMIT 100')
-query_job = client.query(QUERY)  # API request
-rows = query_job.result()  # Waits for query to finish
-
-for row in rows:
-    print(row.name)
+pd.read_csv("Fictitious_Records.csv")

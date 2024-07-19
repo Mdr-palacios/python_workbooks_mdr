@@ -1,0 +1,75 @@
+## this is a very fast very loose blocks of code for students
+## to build on. It should be relatively easy to either port it 
+## into a local machine or run and modify inside codespaces
+## this is not a particularly pretty book, but it should let people
+## work as they might wish. 
+
+## here we've imported the first few packages for you. 
+import os
+import pandas as pd
+
+## exercise 0: Import necessary libraries and load data from a csv file into a pandas dataframe 
+## hint: pd.read_csv is your friend
+## again, pandas documentation, which you can refer to frequently, is here
+## https://pandas.pydata.org/docs/user_guide/index.html
+
+df = pd.read_csv("Fictitious_Records.csv")
+
+## exercise 1: Inspect the DataFrame to understand its structure and content
+## hint: Use the head(), dtypes, and describe() methods to quickly inspect the DataFrame, as mentioned in the slides.
+
+# Display the first 10 rows
+print(df.head(10))
+
+# Display columns and data types
+print(df.dtypes)
+
+# Summary statistics
+print(df.describe())
+
+## exercise 2: Filter data based on specific conditions.
+## hint: Remember how we used the > operator to filter data. Apply similar techniques here to filter and count rows.
+
+# Filter rows where 'Age' > 30
+filtered_df = df[df['Age'] > 30]
+
+# Count the rows
+count = filtered_df.shape[0]
+print(f"Number of rows where Age > 30: {count}")
+
+## exercise 3: Select specific columns and rename them.
+## hint: Use double brackets to select multiple columns and the rename() method to change column names.
+
+# Select specific columns
+selected_df = df[['Name', 'Age', 'City']]
+
+# Rename columns
+selected_df = selected_df.rename(columns={'Name': 'Full Name', 'City': 'Location'})
+print(selected_df.head())
+
+## exercise 4: Identify and handle missing data in the DataFrame.
+## hint: Use isnull(), dropna(), and fillna() to handle missing data.
+
+# Check for missing values
+print(df.isnull().sum())
+
+# Drop rows with missing values
+df_cleaned = df.dropna()
+
+# Fill missing values in 'Age' with the mean
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+
+## exercise 5: Translate a SQL query into Pandas code.
+## code is Given SQL: SELECT Name, Age FROM your_table WHERE Age > 25 ORDER BY Age DESC;
+## hint: Break down the SQL query into its components (filtering, selecting columns, sorting) and translate each part into Pandas code.
+
+# Translate SQL to Pandas
+result_df = df[df['Age'] > 25][['Name', 'Age']].sort_values(by='Age', ascending=False)
+print(result_df.head())
+
+## exercise 6: Perform grouping and aggregation operations.
+## hint: Use the groupby() method followed by an aggregation function like mean().
+
+# Group by 'City' and calculate the average age
+grouped_df = df.groupby('City')['Age'].mean().reset_index()
+print(grouped_df)

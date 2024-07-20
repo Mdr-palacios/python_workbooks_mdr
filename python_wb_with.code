@@ -27,11 +27,16 @@ print(df.dtypes)
 # Summary statistics
 print(df.describe())
 
+# Display the shape of the DataFrame
+print(df.shape)
+
 ## exercise 2: Filter data based on specific conditions.
 ## hint: Remember how we used the > operator to filter data. Apply similar techniques here to filter and count rows.
 
 # Filter rows where 'Age' > 30
 filtered_df = df[df['Age'] > 30]
+OR
+filtered_df = df.query(“Age > 30”)
 
 # Count the rows
 count = filtered_df.shape[0]
@@ -59,6 +64,11 @@ df_cleaned = df.dropna()
 # Fill missing values in 'Age' with the mean
 df['Age'] = df['Age'].fillna(df['Age'].mean())
 
+# Change the data type of Age from int to float
+df['Age'] = df['Age'].astype(float)
+
+print(df.dtypes) #Verify the change in the data type
+
 ## exercise 5: Translate a SQL query into Pandas code.
 ## code is Given SQL: SELECT Name, Age FROM your_table WHERE Age > 25 ORDER BY Age DESC;
 ## hint: Break down the SQL query into its components (filtering, selecting columns, sorting) and translate each part into Pandas code.
@@ -66,10 +76,3 @@ df['Age'] = df['Age'].fillna(df['Age'].mean())
 # Translate SQL to Pandas
 result_df = df[df['Age'] > 25][['Name', 'Age']].sort_values(by='Age', ascending=False)
 print(result_df.head())
-
-## exercise 6: Perform grouping and aggregation operations.
-## hint: Use the groupby() method followed by an aggregation function like mean().
-
-# Group by 'City' and calculate the average age
-grouped_df = df.groupby('City')['Age'].mean().reset_index()
-print(grouped_df)

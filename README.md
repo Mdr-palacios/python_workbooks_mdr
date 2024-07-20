@@ -19,12 +19,12 @@ If you need help or want to check your work, you can refer to the `python_wb_wit
 3. Select specific columns and rename them.
 4. Identify and handle missing data in the DataFrame.
 5. Translate a SQL query into Pandas code.
-6. Perform grouping and aggregation operations.
 
 ### Resources
 - [Pandas Documentation](https://pandas.pydata.org/docs/user_guide/index.html)
+- [Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf))
 
 ## Near Term Improvements
 1. Add the rest of Rosario's prompts - this is done
-2. Add other prompts.
-3. Add connector to BigQuery so students can practice the BigQuery CLI.
+2. Add other prompts. - this is done 
+3. Add connector to BigQuery so students can practice the BigQuery CLI. - Not needed for this exercise

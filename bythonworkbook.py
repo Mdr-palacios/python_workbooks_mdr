@@ -29,6 +29,3 @@ pd.read_csv("Fictitious_Records.csv")
 ## exercise 5: Translate a SQL query into Pandas code.
 ## code is Given SQL: SELECT Name, Age FROM your_table WHERE Age > 25 ORDER BY Age DESC;
 ## hint: Break down the SQL query into its components (filtering, selecting columns, sorting) and translate each part into Pandas code.
-
-## exercise 6: Perform grouping and aggregation operations.
-## hint: Use the groupby() method followed by an aggregation function like mean(). 

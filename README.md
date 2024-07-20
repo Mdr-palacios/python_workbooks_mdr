@@ -22,7 +22,7 @@ If you need help or want to check your work, you can refer to the `python_wb_wit
 
 ### Resources
 - [Pandas Documentation](https://pandas.pydata.org/docs/user_guide/index.html)
-- [Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf))
+- [Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 
 ## Near Term Improvements
 1. Add the rest of Rosario's prompts - this is done
